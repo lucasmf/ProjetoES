@@ -22,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SintomasActivity"
+           		  android:label="@string/activity_sintomas_message" 
+           		  android:parentActivityName="com.example.meusmedicos.MainActivity" >
+        </activity>
+        <activity android:name=".ConsultasActivity"
+           		  android:label="@string/activity_consultas_message" 
+           		  android:parentActivityName="com.example.meusmedicos.ConsultasActivity" >
+        </activity>
     </application>
 
 </manifest>

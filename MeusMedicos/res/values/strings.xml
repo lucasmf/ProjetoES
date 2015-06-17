@@ -4,5 +4,8 @@
     <string name="app_name">MeusMedicos</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="meus_medicos">Meus Medicos</string>
+    <string name="activity_sintomas_message">Gerenciar Sintomas</string>
+    <string name="activity_consultas_message">Gerenciar Consultas</string>
 
 </resources>

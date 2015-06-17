@@ -1,37 +1,17 @@
 package com.example.meusmedicos;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
+import android.view.ViewGroup;
 
+public class ConsultasActivity extends Activity {
 
-public class MainActivity extends Activity {
-
-	public void openSintomas(View view) {
-	    Intent intent = new Intent(this, SintomasActivity.class);
-	    startActivity(intent);
-	}
-	
-	public void openConsultas(View view) {
-	    Intent intent = new Intent(this, ConsultasActivity.class);
-	    startActivity(intent);
-	}
-	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        setContentView(R.layout.activity_consultas);
     }
 
     @Override
@@ -45,4 +25,6 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    
 }
