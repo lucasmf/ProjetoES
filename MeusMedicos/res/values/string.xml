@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Other string resources also defined in this file… -->
+    <string name="feedbacktype">Especialidade</string>
+    <string name="especialidade1">Clínico Geral</string>
+    <string name="feedbackbutton">Enviar</string>
+</resources>

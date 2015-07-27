@@ -11,12 +11,12 @@ import android.view.View;
 public class MainActivity extends Activity {
 
 	public void openSintomas(View view) {
-	    Intent intent = new Intent(this, SintomasActivity.class);
+	    Intent intent = new Intent(this, AddConsultasActivity.class);
 	    startActivity(intent);
 	}
 	
 	public void openConsultas(View view) {
-	    Intent intent = new Intent(this, ConsultasActivity.class);
+	    Intent intent = new Intent(this, ShowConsultas.class);
 	    startActivity(intent);
 	}
 	
