@@ -2,7 +2,7 @@ package com.example.meusmedicos;
 
 import java.util.GregorianCalendar;
 
-public class Consulta {
+public class Consulta implements Comparable <Consulta> {
 	private String medico;
 	private String especialidade;
 	private GregorianCalendar date;
@@ -45,5 +45,17 @@ public class Consulta {
 
 	public void setAnotacao(String anotacao) {
 		this.anotacao = anotacao;
+	}
+
+	@Override
+	public int compareTo(Consulta another) {
+		if (this.getDate().getTimeInMillis() != another.getDate().getTimeInMillis()) {
+			return this.getDate().compareTo(another.getDate());
+		}else if (!this.getEspecialidade().equals(another.getEspecialidade())){
+			return this.getEspecialidade().compareTo(another.getEspecialidade());
+		}else{
+			return this.getMedico().compareTo(another.getMedico());
+		}
+
 	}
 }

@@ -1,7 +1,10 @@
 package com.example.meusmedicos;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 public class ShowConsultas extends Activity {
 	
@@ -21,32 +25,40 @@ public class ShowConsultas extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_consultas);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
         lv = (ListView) findViewById(R.id.listView1);
         // Instanciating an array list (you don't need to do this, 
         // you already have yours).
-        List<String> your_array_list = new ArrayList<String>();
-        List<Consulta> consultas = Controller.getConsultas();
-        for(Consulta c:consultas) {
-        	your_array_list.add(c.getMedico());
+        ArrayList<Consulta> s = Controller.getConsultas();
+        List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+
+        for (Consulta item : s) {
+            Map<String, String> datum = new HashMap<String, String>(2);
+            datum.put("campo1", item.getMedico());     //Item
+            datum.put("campo2", formatter.format(item.getDate().getTime()));    //subItem
+            data.add(datum);
         }
         // This is the array adapter, it takes the context of the activity as a 
         // first parameter, the type of list view as a second parameter and your 
         // array as a third parameter.
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                this, 
-                android.R.layout.simple_list_item_1,
-                your_array_list );
-        lv.setAdapter(arrayAdapter);
-        Activity thisActivity = this;
-
+        SimpleAdapter adapter = new SimpleAdapter(this, data,android.R.layout.simple_list_item_2,new String[] {"campo1", "campo2"},
+                new int[] {android.R.id.text1, android.R.id.text2});
+        lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Global.selectedConsulta = Controller.getConsultas().get((int) id);
-                Intent intent = new Intent(thisActivity, ShowConsultaDetalhada.class);
-                startActivity(intent);
+                openDetalhes((int) id);
             }
         });
+
+
+    }
+
+    private void openDetalhes(int id) {
+        Global.selectedConsulta = Controller.getConsultas().get(id);
+        Intent intent = new Intent(this, ShowConsultaDetalhada.class);
+        startActivity(intent);
     }
 
     @Override
