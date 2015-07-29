@@ -6,24 +6,29 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
+/**
+ * Created by Órion on 29/07/2015.
+ */
+public class ShowConsultaDetalhada extends Activity {
+    private TextView lbSetNameDoctor;
+    private TextView lbSetAnnotation;
 
-public class MainActivity extends Activity {
-
-	public void openSintomas(View view) {
-	    Intent intent = new Intent(this, ShowSintomas.class);
-	    startActivity(intent);
-	}
-	
-	public void openConsultas(View view) {
-	    Intent intent = new Intent(this, ShowConsultas.class);
-	    startActivity(intent);
-	}
-	
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.show_consulta_detalhada);
+        lbSetNameDoctor = (TextView) findViewById(R.id.textView2);
+        lbSetAnnotation = (TextView) findViewById(R.id.textView3);
+        lbSetNameDoctor.setText(Global.selectedConsulta.getMedico());
+        lbSetAnnotation.setText(Global.selectedConsulta.getAnotacao());
+    }
+
+
+    public void criaAnotacao(View view){
+        Intent intent = new Intent(this, AddAnnotationOnConsulta.class);
+        startActivity(intent);
     }
 
     @Override
