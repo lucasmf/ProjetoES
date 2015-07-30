@@ -75,7 +75,7 @@ public class ShowSintomas extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_plus) {
-            Intent intent = new Intent(this, AddConsultasActivity.class);
+            Intent intent = new Intent(this, AddSintomasActivity.class);
             startActivity(intent);
             return true;
         }
