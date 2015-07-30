@@ -18,10 +18,7 @@ import android.widget.Toast;
 
 public class AddConsultasActivity extends Activity {
 	
-	public void createConsulta(View view) {
-		
-		Toast.makeText(getApplicationContext(), "Metodo chamado",
-				Toast.LENGTH_LONG).show();
+	public void createConsulta(View view) throws InterruptedException {
 		
 		final EditText nameField = (EditText) findViewById(R.id.nodeForm);
 		String nomeMedico = nameField.getText().toString();
@@ -38,8 +35,10 @@ public class AddConsultasActivity extends Activity {
 		Consulta consulta = new Consulta(nomeMedico, especialidade, calendar);
 		Controller.addConsulta(consulta);
 		Log.i("Consulta", "Consulta adicionada, "+Controller.getConsultas().size());
-		
-
+		finish();
+		startActivity(getIntent());
+		Toast.makeText(getApplicationContext(), "Consulta criada.",
+				Toast.LENGTH_LONG).show();
 	}
 
 	@Override

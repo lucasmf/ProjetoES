@@ -25,7 +25,7 @@ public class ShowConsultas extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_consultas);
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy   hh:mm");
 
         lv = (ListView) findViewById(R.id.listView1);
         // Instanciating an array list (you don't need to do this, 
@@ -35,7 +35,7 @@ public class ShowConsultas extends Activity {
 
         for (Consulta item : s) {
             Map<String, String> datum = new HashMap<String, String>(2);
-            datum.put("campo1", item.getMedico());     //Item
+            datum.put("campo1", item.toString());     //Item
             datum.put("campo2", formatter.format(item.getDate().getTime()));    //subItem
             data.add(datum);
         }

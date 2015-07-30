@@ -29,4 +29,7 @@ public class Controller {
 			sintomas.add((-insertionIndex - 1), sintoma);
 		}
 	}
+	public static void deletaConsulta(Consulta consulta) {
+		consultas.remove(consulta);
+	}
 }

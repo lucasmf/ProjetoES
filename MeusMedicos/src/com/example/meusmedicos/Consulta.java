@@ -58,4 +58,10 @@ public class Consulta implements Comparable <Consulta> {
 		}
 
 	}
+	
+	@Override
+	public String toString() {
+		return medico + " - " + especialidade;
+
+	}
 }

@@ -30,7 +30,14 @@ public class ShowConsultaDetalhada extends Activity {
         Intent intent = new Intent(this, AddAnnotationOnConsulta.class);
         startActivity(intent);
     }
-
+    
+    public void deletaConsulta(View view) {
+    	Controller.deletaConsulta(Global.selectedConsulta);
+    	finish();
+    	Intent intent = new Intent(this, ShowConsultas.class);
+	    startActivity(intent);
+    }
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
