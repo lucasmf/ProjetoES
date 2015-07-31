@@ -28,7 +28,7 @@
 		</EditText>
 		
 	 	<Spinner
-	    android:id="@+id/especialidadeForm"
+	    android:id="@+id/especialidadeForm1"
 	    android:layout_height="wrap_content"
 	    android:prompt="@string/feedbacktype"
 	    android:layout_width="fill_parent"
@@ -36,7 +36,7 @@
 		</Spinner>
 
 	 	<DatePicker
-	 	    android:id="@+id/datePickerForm"
+	 	    android:id="@+id/datePickerForm1"
 	 	    android:layout_width="wrap_content"
 	 	    android:layout_height="wrap_content" />
 

@@ -21,12 +21,12 @@ public class AddConsultasActivity extends Activity {
 		final EditText nameField = (EditText) findViewById(R.id.nodeForm);
 		String nomeMedico = nameField.getText().toString();
 		
-		final Spinner especialidadeSpinner = (Spinner) findViewById(R.id.especialidadeForm);
+		final Spinner especialidadeSpinner = (Spinner) findViewById(R.id.especialidadeForm1);
 		String especialidade = especialidadeSpinner.getSelectedItem()
 				.toString();
 	
 		final TimePicker time = (TimePicker) findViewById(R.id.timePickerForm);
-		final DatePicker date = (DatePicker) findViewById(R.id.datePickerForm);
+		final DatePicker date = (DatePicker) findViewById(R.id.datePickerForm1);
 		GregorianCalendar calendar = new GregorianCalendar(date.getYear(), date.getMonth(), date.getDayOfMonth(),
 				time.getCurrentHour(), time.getCurrentMinute());
 		

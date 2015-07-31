@@ -1,5 +1,6 @@
 package com.example.meusmedicos;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
@@ -8,11 +9,11 @@ import java.util.GregorianCalendar;
 public class Sintoma implements Comparable<Sintoma> {
     private String titulo;
     private int duracaoDeDias;
-    private GregorianCalendar dataQueComecou;
+    private Calendar dataQueComecou;
     private String especialidade;
     private String anotacao;
 
-    public Sintoma(String titulo, GregorianCalendar date, int duracao, String especialidade) {
+    public Sintoma(String titulo, Calendar date, int duracao, String especialidade) {
         this.setTitulo(titulo);
         this.setDataQueComecou(date);
         this.setDuracaoDeDias(duracao);
@@ -38,11 +39,11 @@ public class Sintoma implements Comparable<Sintoma> {
 
     public void setDuracaoDeDias(int duracaoDeDias) {  this.duracaoDeDias= duracaoDeDias;  }
 
-    public GregorianCalendar getDataQueComecou() {
+    public Calendar getDataQueComecou() {
         return this.dataQueComecou;
     }
 
-    public void setDataQueComecou(GregorianCalendar date) {
+    public void setDataQueComecou(Calendar date) {
         this.dataQueComecou = date;
     }
 

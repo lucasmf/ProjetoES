@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
+        android:textSize="20sp"
+        android:text="Detalhe seu sintoma:"
+        />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/textView10"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:layout_below="@+id/textView10"
+        android:text="Título:"
+        />
+
+    <EditText
+        android:id="@+id/editText10"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textView10"
+        android:layout_marginLeft="80dp"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/textView10"
+        android:layout_below="@+id/textView11"
+        android:text="Especialidade:"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        />
+
+    <Spinner
+        android:id="@+id/especialidadeForm2"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textView11"
+        android:layout_marginLeft="130dp"
+        android:prompt="@string/feedbacktype"
+        android:entries="@array/feedbacktypelist"
+        android:gravity="center_vertical">
+    </Spinner>
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/textView10"
+        android:layout_below="@+id/textView12"
+        android:text="Data de Início:"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        />
+
+    <EditText
+        android:id="@+id/editText11"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="130dp"
+        android:layout_below="@+id/textView12"
+        android:text="dd/MM/yyyy"
+        android:gravity="center"
+        android:onClick="callDatePickerDialog"
+        android:textSize="18sp"
+        android:editable="false"
+        />
+
+
+
+
+</RelativeLayout>
