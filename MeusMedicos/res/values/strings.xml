@@ -8,5 +8,7 @@
     <string name="activity_consultas_message">Consultas</string>
     <string name="activity_sintomas_message">Sintomas</string>
     <string name="activity_anotacoes_message">Anotações</string>
+    <string name="toast_message_title_missing">Especifique o título</string>
+    <string name="toast_message_duration_missing">Especifique a duração</string>
 
 </resources>

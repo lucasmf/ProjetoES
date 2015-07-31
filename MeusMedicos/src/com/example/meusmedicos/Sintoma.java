@@ -13,12 +13,12 @@ public class Sintoma implements Comparable<Sintoma> {
     private String especialidade;
     private String anotacao;
 
-    public Sintoma(String titulo, Calendar date, int duracao, String especialidade) {
+    public Sintoma(String titulo, Calendar date, int duracao, String especialidade, String anotacao) {
         this.setTitulo(titulo);
         this.setDataQueComecou(date);
         this.setDuracaoDeDias(duracao);
         this.setEspecialidade(especialidade);
-        this.setAnotacao("");
+        this.setAnotacao(anotacao);
     }
 
     public String getTitulo() {  return this.titulo;  }

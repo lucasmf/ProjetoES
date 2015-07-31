@@ -27,32 +27,8 @@ public class ShowSintomas extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_sintomas);
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-
         lv = (ListView) findViewById(R.id.listView2);
-        // Instanciating an array list (you don't need to do this,
-        // you already have yours).
-        ArrayList<Sintoma> sintomas = Controller.getSintomas();
-        List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-
-        for (Sintoma item : sintomas) {
-            Map<String, String> datum = new HashMap<String, String>(2);
-            datum.put("campo1", item.getTitulo());     //Item
-            datum.put("campo2", formatter.format(item.getDataQueComecou().getTime()));    //subItem
-            data.add(datum);
-        }
-        // This is the array adapter, it takes the context of the activity as a
-        // first parameter, the type of list view as a second parameter and your
-        // array as a third parameter.
-        SimpleAdapter adapter = new SimpleAdapter(this, data,android.R.layout.simple_list_item_2,new String[] {"campo1", "campo2"},
-                new int[] {android.R.id.text1, android.R.id.text2});
-        lv.setAdapter(adapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                openDetalhes((int) id);
-            }
-        });
+        loadListOfSintomas();
     }
 
     private void openDetalhes(int id) {
@@ -80,5 +56,33 @@ public class ShowSintomas extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        lv.setAdapter(null);
+        loadListOfSintomas();
+    }
+
+    private void loadListOfSintomas() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        ArrayList<Sintoma> sintomas = Controller.getSintomas();
+        List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+        for (Sintoma item : sintomas) {
+            Map<String, String> datum = new HashMap<String, String>(2);
+            datum.put("campo1", item.getTitulo());     //Item
+            datum.put("campo2", formatter.format(item.getDataQueComecou().getTime()));    //subItem
+            data.add(datum);
+        }
+        SimpleAdapter adapter = new SimpleAdapter(this, data,android.R.layout.simple_list_item_2,new String[] {"campo1", "campo2"},
+                new int[] {android.R.id.text1, android.R.id.text2});
+        lv.setAdapter(adapter);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                openDetalhes((int) id);
+            }
+        });
     }
 }
