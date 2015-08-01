@@ -32,4 +32,11 @@ public class Controller {
 	public static void deletaConsulta(Consulta consulta) {
 		consultas.remove(consulta);
 	}
+
+	public static void removeSintoma() {
+		int deletionIndex = Collections.binarySearch(sintomas, Global.selectedSintoma);
+		if (deletionIndex >= 0){
+			sintomas.remove(deletionIndex);
+		}
+	}
 }

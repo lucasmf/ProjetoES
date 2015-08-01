@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="\tEstive com [Sintoma] desde [Data] por [Duração de Sintoma] dias, e creio que um [Especialista] possa me auxiliar nisso."
+        android:gravity="center_vertical"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textView30"
+        android:text="\tAlém disso, [Descrição]"
+        android:gravity="center_vertical"
+        android:textSize="20sp"/>
+
+</RelativeLayout>

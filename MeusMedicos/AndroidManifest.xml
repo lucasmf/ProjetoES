@@ -44,6 +44,9 @@
                   android:name=".AddSintomasActivity"
                   android:label="Sintoma"
                   android:parentActivityName=".ShowSintomas"/>
+        <activity
+            android:name=".ShowSintomaDetalhado"
+            android:label="Sintoma" />
     </application>
 
 </manifest>

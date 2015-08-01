@@ -33,7 +33,7 @@ public class ShowSintomas extends Activity {
 
     private void openDetalhes(int id) {
         Global.selectedSintoma = Controller.getSintomas().get(id);
-        Intent intent = new Intent(this, ShowConsultaDetalhada.class);
+        Intent intent = new Intent(this, ShowSintomaDetalhado.class);
         startActivity(intent);
     }
 

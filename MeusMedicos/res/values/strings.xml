@@ -10,5 +10,16 @@
     <string name="activity_anotacoes_message">Anotações</string>
     <string name="toast_message_title_missing">Especifique o título</string>
     <string name="toast_message_duration_missing">Especifique a duração</string>
+    <string name="sintoma_visualisation_part01">"   Estive com "</string>
+    <string name="sintoma_visualisation_part02">" desde "</string>
+    <string name="sintoma_visualisation_part03">" por "</string>
+    <string name="sintoma_visualisation_part04">" dias,"</string>
+    <string name="sintoma_visualisation_part05">" e creio que um "</string>
+    <string name="sintoma_visualisation_part06">" possa me auxiliar nisso."</string>
+    <string name="sintoma_visualisation_part07">"\tAlém disso, "</string>
+    <string name="sure_to_delete_sintoma">"Deseja realmente deletar este Sintoma?"</string>
+    <string name="deletion_sintoma_sucess">Sintoma deletado com sucesso.</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
 
 </resources>
