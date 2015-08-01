@@ -56,7 +56,7 @@ public final class R {
         public static final int activity_main=0x7f040001;
         public static final int activity_sintomas=0x7f040002;
         public static final int add_annotation_on_consulta=0x7f040003;
-        public static final int add_sintomas_activity=0x7f040004;
+        public static final int edit_sintomas_activity =0x7f040004;
         public static final int show_consulta_detalhada=0x7f040005;
         public static final int show_consultas=0x7f040006;
         public static final int show_sintomas=0x7f040007;

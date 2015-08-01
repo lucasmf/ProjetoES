@@ -13,25 +13,45 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
- * Screen where Sintoma is added on System.
+ * Created by Dênnis on 8/1/2015.
  */
-public class AddSintomasActivity extends Activity {
-
-    private Calendar begginingDate;
+public class EditSintomasActivity extends Activity {
+    private Calendar begginingDate = Global.selectedSintoma.getDataQueComecou();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_sintomas_activity);
-        begginingDate = Calendar.getInstance();
-        int year = begginingDate.get(Calendar.YEAR);
-        int month = begginingDate.get(Calendar.MONTH);
-        int day = begginingDate.get(Calendar.DAY_OF_MONTH);
 
-        String currentDate = day + "/" + month + "/" + year;
-        ((EditText)findViewById(R.id.editText11)).setText(currentDate);
+        setAllEditTexts();
+    }
+
+    private void setAllEditTexts() {
+        ((EditText)findViewById(R.id.editText10)).setText(getActualTitleFromSintoma());
+        ((EditText)findViewById(R.id.editText11)).setText(getActualDataOfSintoma());
+        ((EditText)findViewById(R.id.editText12)).setText(getActualNumberOfDaysFromSintoma());
+        ((EditText)findViewById(R.id.editText13)).setText(getActualAnotacaoFromSintoma());
+    }
+
+    private String getActualAnotacaoFromSintoma() {
+        return Global.selectedSintoma.getAnotacao();
+    }
+
+    private String getActualNumberOfDaysFromSintoma() {
+        return "" + Global.selectedSintoma.getDuracaoDeDias();
+    }
+
+    private String getActualDataOfSintoma() {
+        Date date = Global.selectedSintoma.getDataQueComecou().getTime();
+        String dataStr = Global.formatterDate.format(date);
+        return dataStr;
+    }
+
+    private String getActualTitleFromSintoma() {
+        return Global.selectedSintoma.getTitulo();
     }
 
     @Override
@@ -61,9 +81,9 @@ public class AddSintomasActivity extends Activity {
 
     public void salvar(View view){
         if(allRequiredFieldsWereFilled()) {
-            Controller.addSintoma(createSintoma(getTitleFromSintoma(), getNumberOfDaysFromSintoma(),
+            Controller.editSintoma(createSintoma(getTitleFromSintoma(), getNumberOfDaysFromSintoma(),
                     getEspecialidadeFromSintoma(), getAnotacaoFromSintoma()));
-            informSintomaCreation();
+            informSintomaEdition();
         }
     }
 
@@ -81,9 +101,9 @@ public class AddSintomasActivity extends Activity {
         return true;
     }
 
-    private void informSintomaCreation() {
-        Log.i("Sintoma", "Sintoma adicionado, " + Controller.getSintomas().size());
-        Toast.makeText(getApplicationContext(), "Sintoma criado.",
+    private void informSintomaEdition() {
+        Log.i("Sintoma", "Sintoma modificado, " + Controller.getSintomas().size());
+        Toast.makeText(getApplicationContext(), "Sintoma modificado.",
                 Toast.LENGTH_LONG).show();
         onBackPressed();
     }
@@ -115,6 +135,12 @@ public class AddSintomasActivity extends Activity {
 
     public Sintoma createSintoma(String title, int number, String especialidade, String anotacao){
         return new Sintoma(title, this.begginingDate, number, especialidade, anotacao);
+    }
+
+    private String getDataOfSintoma() {
+        Date date = Global.selectedSintoma.getDataQueComecou().getTime();
+        String dataStr = Global.formatterDate.format(date);
+        return dataStr;
     }
 
     public String getAnotacaoFromSintoma() {

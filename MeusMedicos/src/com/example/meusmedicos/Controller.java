@@ -1,5 +1,7 @@
 package com.example.meusmedicos;
 
+import android.telephony.gsm.GsmCellLocation;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -38,5 +40,14 @@ public class Controller {
 		if (deletionIndex >= 0){
 			sintomas.remove(deletionIndex);
 		}
+	}
+
+	public static void editSintoma(Sintoma sintoma) {
+		Global.selectedSintoma.setTitulo(sintoma.getTitulo());
+		Global.selectedSintoma.setDataQueComecou(sintoma.getDataQueComecou());
+		Global.selectedSintoma.setEspecialidade(sintoma.getEspecialidade());
+		Global.selectedSintoma.setDuracaoDeDias(sintoma.getDuracaoDeDias());
+		Global.selectedSintoma.setAnotacao(sintoma.getAnotacao());
+		Collections.sort(sintomas);
 	}
 }

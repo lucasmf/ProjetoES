@@ -46,7 +46,12 @@
                   android:parentActivityName=".ShowSintomas"/>
         <activity
             android:name=".ShowSintomaDetalhado"
-            android:label="Sintoma" />
+            android:label="Sintoma"
+            android:parentActivityName=".ShowSintomas"/>
+        <activity
+            android:name=".EditSintomasActivity"
+            android:label="Sintoma"
+            android:parentActivityName=".ShowSintomaDetalhado"/>
     </application>
 
 </manifest>

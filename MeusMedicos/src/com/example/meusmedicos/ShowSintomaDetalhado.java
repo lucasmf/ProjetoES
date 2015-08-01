@@ -27,8 +27,15 @@ public class ShowSintomaDetalhado extends Activity {
     }
 
     @Override
+    protected void onRestart() {
+        super.onRestart();
+        setAllTextViews();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         getMenuInflater().inflate(R.menu.edit_and_delete, menu);
         return true;
     }
@@ -40,7 +47,7 @@ public class ShowSintomaDetalhado extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_edit) {
-            Intent intent = new Intent(this, AddSintomasActivity.class);
+            Intent intent = new Intent(this, EditSintomasActivity.class);
             startActivity(intent);
             return true;
         }
