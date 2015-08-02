@@ -14,49 +14,53 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".views.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddConsultasActivity"
+        <activity android:name=".views.consulta.AddConsultasActivity"
            		  android:label="@string/activity_consultas_message" 
-           		  android:parentActivityName="com.example.meusmedicos.ShowConsultas" >
+           		  android:parentActivityName=".views.consulta.ShowConsultas" >
         </activity>
-        <activity android:name=".ShowConsultas"
+        <activity android:name=".views.consulta.ShowConsultas"
            		  android:label="@string/activity_consultas_message" 
-           		  android:parentActivityName="com.example.meusmedicos.MainActivity" >
+           		  android:parentActivityName=".views.MainActivity" >
         </activity>
-        <activity android:name=".AddAnnotationOnConsulta"
+        <activity android:name=".views.consulta.AddAnnotationOnConsulta"
                   android:label="@string/activity_anotacoes_message"
-                  android:parentActivityName=".ShowConsultaDetalhada">
+                  android:parentActivityName=".views.consulta.ShowConsultaDetalhada">
         </activity>
-        <activity android:name=".ShowConsultaDetalhada"
+        <activity android:name=".views.consulta.ShowConsultaDetalhada"
                   android:label="@string/activity_consultas_message"
-                  android:parentActivityName=".ShowConsultas">
+                  android:parentActivityName=".views.consulta.ShowConsultas">
         </activity>
-        <activity android:name=".ShowSintomas"
+        <activity android:name=".views.sintoma.ShowSintomas"
                   android:label="@string/activity_sintomas_message"
-                  android:parentActivityName=".MainActivity"/>
+                  android:parentActivityName=".views.MainActivity"/>
         <activity
-                  android:name=".AddSintomasActivity"
+                  android:name=".views.sintoma.AddSintomasActivity"
                   android:label="Sintoma"
-                  android:parentActivityName=".ShowSintomas"/>
+                  android:parentActivityName=".views.sintoma.ShowSintomas"/>
         <activity
-            android:name=".ShowSintomaDetalhado"
+            android:name=".views.sintoma.ShowSintomaDetalhado"
             android:label="Sintoma"
-            android:parentActivityName=".ShowSintomas"/>
+            android:parentActivityName=".views.sintoma.ShowSintomas"/>
         <activity
-            android:name=".EditSintomasActivity"
+            android:name=".views.sintoma.EditSintomasActivity"
             android:label="Sintoma"
-            android:parentActivityName=".ShowSintomaDetalhado"/>
+            android:parentActivityName=".views.sintoma.ShowSintomaDetalhado"/>
         <activity
             android:name=".ShowHelp"
             android:label="Help"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".DialogEspecialidade" />
+            android:parentActivityName=".views.MainActivity"/>
+        <activity android:name=".views.especialidade.DialogEspecialidade" />
+=======
+            android:parentActivityName=".views.sintoma.ShowSintomaDetalhado"/>
+        <activity android:name=".views.especialidade.DialogEspecialidade" />
+>>>>>>> b55a30410603649a27aa0e77c2bc1584bb0d36c2
     </application>
 
 </manifest>

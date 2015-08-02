@@ -1,4 +1,4 @@
-package com.example.meusmedicos;
+package com.example.meusmedicos.views.consulta;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -11,6 +11,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.example.meusmedicos.controllers.Controller;
+import com.example.meusmedicos.R;
+import com.example.meusmedicos.models.Consulta;
 
 import java.util.GregorianCalendar;
 

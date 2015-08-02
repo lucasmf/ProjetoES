@@ -1,4 +1,4 @@
-package com.example.meusmedicos;
+package com.example.meusmedicos.views.sintoma;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,9 +7,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+import com.example.meusmedicos.controllers.Controller;
+import com.example.meusmedicos.Global;
+import com.example.meusmedicos.R;
+import com.example.meusmedicos.models.Sintoma;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

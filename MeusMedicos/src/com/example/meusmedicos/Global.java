@@ -1,7 +1,7 @@
 package com.example.meusmedicos;
 
-import android.widget.EditText;
-import android.widget.TextView;
+import com.example.meusmedicos.models.Consulta;
+import com.example.meusmedicos.models.Sintoma;
 
 import java.text.SimpleDateFormat;
 

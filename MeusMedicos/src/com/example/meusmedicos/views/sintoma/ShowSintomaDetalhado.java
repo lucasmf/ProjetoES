@@ -1,4 +1,4 @@
-package com.example.meusmedicos;
+package com.example.meusmedicos.views.sintoma;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -10,8 +10,10 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import com.example.meusmedicos.controllers.Controller;
+import com.example.meusmedicos.Global;
+import com.example.meusmedicos.R;
+
 import java.util.Date;
 
 /**
