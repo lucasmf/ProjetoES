@@ -52,15 +52,11 @@
             android:name=".views.sintoma.EditSintomasActivity"
             android:label="Sintoma"
             android:parentActivityName=".views.sintoma.ShowSintomaDetalhado"/>
+        <activity android:name=".views.especialidade.DialogEspecialidade" />
         <activity
-            android:name=".ShowHelp"
+            android:name=".views.ShowHelp"
             android:label="Help"
             android:parentActivityName=".views.MainActivity"/>
-        <activity android:name=".views.especialidade.DialogEspecialidade" />
-=======
-            android:parentActivityName=".views.sintoma.ShowSintomaDetalhado"/>
-        <activity android:name=".views.especialidade.DialogEspecialidade" />
->>>>>>> b55a30410603649a27aa0e77c2bc1584bb0d36c2
     </application>
 
 </manifest>
