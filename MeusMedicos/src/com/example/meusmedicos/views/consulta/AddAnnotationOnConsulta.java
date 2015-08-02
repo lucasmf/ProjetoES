@@ -1,4 +1,4 @@
-package com.example.meusmedicos;
+package com.example.meusmedicos.views.consulta;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+
+import com.example.meusmedicos.Global;
+import com.example.meusmedicos.R;
 
 /**
  * Class that add anotacao field on Consulta.

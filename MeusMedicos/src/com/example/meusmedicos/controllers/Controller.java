@@ -1,11 +1,12 @@
-package com.example.meusmedicos;
+package com.example.meusmedicos.controllers;
 
-import android.telephony.gsm.GsmCellLocation;
+import com.example.meusmedicos.Global;
+import com.example.meusmedicos.models.Consulta;
+import com.example.meusmedicos.models.Especialidade;
+import com.example.meusmedicos.models.Sintoma;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 public class Controller {
 	private static ArrayList<Consulta> consultas = new ArrayList<Consulta>();

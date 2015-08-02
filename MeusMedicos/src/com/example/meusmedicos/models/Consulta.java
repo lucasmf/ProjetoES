@@ -1,4 +1,4 @@
-package com.example.meusmedicos;
+package com.example.meusmedicos.models;
 
 import java.util.GregorianCalendar;
 

@@ -1,4 +1,4 @@
-package com.example.meusmedicos;
+package com.example.meusmedicos.views.consulta;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.meusmedicos.controllers.Controller;
+import com.example.meusmedicos.Global;
+import com.example.meusmedicos.R;
 
 /**
  * Screen that details Consulta selected.

@@ -1,4 +1,4 @@
-package com.example.meusmedicos;
+package com.example.meusmedicos.models;
 
 public class Especialidade implements Comparable<Especialidade>{
     private String especialidade;

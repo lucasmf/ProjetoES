@@ -1,4 +1,4 @@
-package com.example.meusmedicos;
+package com.example.meusmedicos.views;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.example.meusmedicos.R;
+import com.example.meusmedicos.views.consulta.ShowConsultas;
+import com.example.meusmedicos.views.sintoma.ShowSintomas;
 
 
 public class MainActivity extends Activity {

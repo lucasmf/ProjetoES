@@ -1,7 +1,6 @@
-package com.example.meusmedicos;
+package com.example.meusmedicos.models;
 
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  * Created by Dênnis on 7/30/2015.
