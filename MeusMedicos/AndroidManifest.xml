@@ -52,6 +52,7 @@
             android:name=".EditSintomasActivity"
             android:label="Sintoma"
             android:parentActivityName=".ShowSintomaDetalhado"/>
+        <activity android:name=".DialogEspecialidade" />
     </application>
 
 </manifest>

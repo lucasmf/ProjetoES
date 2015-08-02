@@ -5,10 +5,12 @@ import android.telephony.gsm.GsmCellLocation;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 public class Controller {
 	private static ArrayList<Consulta> consultas = new ArrayList<Consulta>();
 	private static ArrayList<Sintoma> sintomas = new ArrayList<Sintoma>();
+	private static ArrayList<Especialidade> especialidades = new ArrayList<Especialidade>();
 
 	public static ArrayList<Consulta> getConsultas() {
 		return consultas;
@@ -39,6 +41,18 @@ public class Controller {
 		int deletionIndex = Collections.binarySearch(sintomas, Global.selectedSintoma);
 		if (deletionIndex >= 0){
 			sintomas.remove(deletionIndex);
+		}
+	}
+
+	public static ArrayList<Especialidade> getEspecialidades(){
+		return especialidades;
+	}
+
+	public static void adicionaEspecialidade(Especialidade especialidade){
+		int insertionIndex = Collections.binarySearch(especialidades, especialidade);
+		// Do not add if obj is already in the list
+		if (insertionIndex < 0) {
+			especialidades.add((-insertionIndex - 1), especialidade);
 		}
 	}
 

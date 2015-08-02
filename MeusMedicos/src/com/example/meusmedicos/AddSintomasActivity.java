@@ -2,17 +2,21 @@ package com.example.meusmedicos;
 
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * Screen where Sintoma is added on System.
@@ -20,6 +24,7 @@ import java.util.Calendar;
 public class AddSintomasActivity extends Activity {
 
     private Calendar begginingDate;
+    private Spinner spinner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,21 @@ public class AddSintomasActivity extends Activity {
 
         String currentDate = day + "/" + month + "/" + year;
         ((EditText)findViewById(R.id.editText11)).setText(currentDate);
+
+        addItemsOnSpinner();
+    }
+
+    public void addItemsOnSpinner() {
+
+        spinner = (Spinner) findViewById(R.id.especialidadeForm2);
+        List<String> list = new ArrayList<String>();
+        for (Especialidade e: Controller.getEspecialidades()){
+            list.add(e.toString());
+        }
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
     }
 
     @Override
@@ -120,5 +140,11 @@ public class AddSintomasActivity extends Activity {
     public String getAnotacaoFromSintoma() {
         final EditText note = (EditText)findViewById(R.id.editText13);
         return note.getText().toString();
+    }
+
+    public void adicionaEspecialidade(View view){
+        FragmentManager manager = getFragmentManager();
+        DialogEspecialidade dialogEspecialidade = new DialogEspecialidade();
+        dialogEspecialidade.show(manager, "DialogEspecialidade");
     }
 }

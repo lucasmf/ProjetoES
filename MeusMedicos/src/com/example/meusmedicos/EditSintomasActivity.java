@@ -147,4 +147,5 @@ public class EditSintomasActivity extends Activity {
         final EditText note = (EditText)findViewById(R.id.editText13);
         return note.getText().toString();
     }
+
 }
