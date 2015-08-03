@@ -6,12 +6,14 @@ import com.example.meusmedicos.models.Especialidade;
 import com.example.meusmedicos.models.Sintoma;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class Controller {
 	private static ArrayList<Consulta> consultas = new ArrayList<Consulta>();
 	private static ArrayList<Sintoma> sintomas = new ArrayList<Sintoma>();
-	private static ArrayList<Especialidade> especialidades = new ArrayList<Especialidade>();
+	private static ArrayList<Especialidade> especialidades = new ArrayList<Especialidade>(
+			Arrays.asList(new Especialidade("Clinico Geral")));
 
 	public static ArrayList<Consulta> getConsultas() {
 		return consultas;

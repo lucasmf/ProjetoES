@@ -19,6 +19,7 @@ import com.example.meusmedicos.DatePickerFragment;
 import com.example.meusmedicos.R;
 import com.example.meusmedicos.models.Especialidade;
 import com.example.meusmedicos.models.Sintoma;
+import com.example.meusmedicos.views.AdicionadorDeEspecialidade;
 import com.example.meusmedicos.views.especialidade.DialogEspecialidade;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ import java.util.List;
 /**
  * Screen where Sintoma is added on System.
  */
-public class AddSintomasActivity extends Activity {
+public class AddSintomasActivity extends Activity implements AdicionadorDeEspecialidade {
 
     private Calendar begginingDate;
     private Spinner spinner;
