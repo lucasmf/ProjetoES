@@ -24,7 +24,8 @@ public class DialogEspecialidade extends DialogFragment implements View.OnClickL
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.dialog_especialidade, null);
+        getDialog().setTitle("Nova especialidade");
+        view = inflater.inflate(R.layout.dialog_especialidade, container, false);
         adicionar = (Button) view.findViewById(R.id.button3);
         cancelar= (Button) view.findViewById(R.id.button4);
         especialidade = (EditText) view.findViewById(R.id.editText15);
