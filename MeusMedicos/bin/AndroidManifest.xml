@@ -41,8 +41,22 @@
                   android:label="@string/activity_sintomas_message"
                   android:parentActivityName=".views.MainActivity"/>
         <activity
-            android:name=".views.sintoma.AddSintomasActivity"
-            android:label="Sintoma" />
+                  android:name=".views.sintoma.AddSintomasActivity"
+                  android:label="Sintoma"
+                  android:parentActivityName=".views.sintoma.ShowSintomas"/>
+        <activity
+            android:name=".views.sintoma.ShowSintomaDetalhado"
+            android:label="Sintoma"
+            android:parentActivityName=".views.sintoma.ShowSintomas"/>
+        <activity
+            android:name=".views.sintoma.EditSintomasActivity"
+            android:label="Sintoma"
+            android:parentActivityName=".views.sintoma.ShowSintomaDetalhado"/>
+        <activity android:name=".views.especialidade.DialogEspecialidade" />
+        <activity
+            android:name=".views.ShowHelp"
+            android:label="Help"
+            android:parentActivityName=".views.MainActivity"/>
     </application>
 
 </manifest>

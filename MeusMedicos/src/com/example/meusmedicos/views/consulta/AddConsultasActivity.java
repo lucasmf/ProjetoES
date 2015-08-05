@@ -1,6 +1,7 @@
 package com.example.meusmedicos.views.consulta;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.meusmedicos.controllers.Controller;
+import com.example.meusmedicos.DatePickerFragment;
 import com.example.meusmedicos.R;
 import com.example.meusmedicos.models.Consulta;
 import com.example.meusmedicos.models.Especialidade;
@@ -22,12 +24,14 @@ import com.example.meusmedicos.views.AdicionadorDeEspecialidade;
 import com.example.meusmedicos.views.especialidade.DialogEspecialidade;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
 public class AddConsultasActivity extends Activity implements AdicionadorDeEspecialidade {
 
 	private Spinner spinner;
+	private GregorianCalendar calendar = new GregorianCalendar();
 	
 	public void createConsulta(View view) throws InterruptedException {
 		
@@ -39,9 +43,10 @@ public class AddConsultasActivity extends Activity implements AdicionadorDeEspec
 				.toString();
 	
 		final TimePicker time = (TimePicker) findViewById(R.id.timePickerForm);
-		final DatePicker date = (DatePicker) findViewById(R.id.datePickerForm1);
-		GregorianCalendar calendar = new GregorianCalendar(date.getYear(), date.getMonth(), date.getDayOfMonth(),
-				time.getCurrentHour(), time.getCurrentMinute());
+		//final DatePicker date = (DatePicker) findViewById(R.id.datePickerForm1);
+		String date = ((EditText) findViewById(R.id.datePickerForm1)).getText().toString();
+		/*GregorianCalendar calendar = new GregorianCalendar(date.getYear(), date.getMonth(), date.getDayOfMonth(),
+				time.getCurrentHour(), time.getCurrentMinute());*/
 		
 		Consulta consulta = new Consulta(nomeMedico, especialidade, calendar);
 		Controller.addConsulta(consulta);
@@ -51,7 +56,13 @@ public class AddConsultasActivity extends Activity implements AdicionadorDeEspec
 		Toast.makeText(getApplicationContext(), "Consulta criada.",
 				Toast.LENGTH_LONG).show();
 	}
+	
 
+    public void callDatePickerDialog(View view){
+        DialogFragment newFragment = new DatePickerFragment();
+        ((DatePickerFragment)newFragment).show(getFragmentManager(), "datePicker", ((EditText) findViewById(R.id.datePickerForm1)), calendar);
+    }
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

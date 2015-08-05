@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:scrollbars="vertical">
-    <RelativeLayout
+   <RelativeLayout
         android:layout_width="fill_parent"
         android:orientation="vertical"
         android:layout_height="fill_parent">
@@ -48,12 +48,16 @@
 			android:src="@android:drawable/ic_input_add"
 			android:onClick="adicionaEspecialidade"
 			/>
-
-		<DatePicker
-			android:id="@+id/datePickerForm1"
-			android:layout_width="wrap_content"
+		
+  		 <EditText
+	        android:id="@+id/datePickerForm1"
+	        android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_below="@+id/especialidadeForm1"/>
+	        android:text="dd/MM/yyyy"
+	        android:onClick="callDatePickerDialog"
+	        android:layout_below="@id/especialidadeForm1"/>
+        />
+
 
 		<TimePicker
 			android:id="@+id/timePickerForm"
