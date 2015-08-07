@@ -3,6 +3,7 @@ package com.example.meusmedicos.views.consulta;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 import com.example.meusmedicos.controllers.Controller;
 import com.example.meusmedicos.DatePickerFragment;
 import com.example.meusmedicos.R;
+import com.example.meusmedicos.TimePickerFragment;
 import com.example.meusmedicos.models.Consulta;
 import com.example.meusmedicos.models.Especialidade;
 import com.example.meusmedicos.views.AdicionadorDeEspecialidade;
@@ -41,12 +43,6 @@ public class AddConsultasActivity extends Activity implements AdicionadorDeEspec
 		final Spinner especialidadeSpinner = (Spinner) findViewById(R.id.especialidadeForm1);
 		String especialidade = especialidadeSpinner.getSelectedItem()
 				.toString();
-	
-		final TimePicker time = (TimePicker) findViewById(R.id.timePickerForm);
-		//final DatePicker date = (DatePicker) findViewById(R.id.datePickerForm1);
-		String date = ((EditText) findViewById(R.id.datePickerForm1)).getText().toString();
-		/*GregorianCalendar calendar = new GregorianCalendar(date.getYear(), date.getMonth(), date.getDayOfMonth(),
-				time.getCurrentHour(), time.getCurrentMinute());*/
 		
 		Consulta consulta = new Consulta(nomeMedico, especialidade, calendar);
 		Controller.addConsulta(consulta);
@@ -63,10 +59,15 @@ public class AddConsultasActivity extends Activity implements AdicionadorDeEspec
         ((DatePickerFragment)newFragment).show(getFragmentManager(), "datePicker", ((EditText) findViewById(R.id.datePickerForm1)), calendar);
     }
     
+    public void callTimePickerDialog(View view) {
+    	 DialogFragment newFragment = new TimePickerFragment();
+         ((TimePickerFragment)newFragment).show(getFragmentManager(), "timePicker", ((EditText) findViewById(R.id.timePickerForm1)), calendar);
+    }
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_consultas);
+		setContentView(R.layout.activity_edit_consulta);
 		addItemsOnSpinner();
 	}
 

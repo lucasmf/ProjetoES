@@ -67,4 +67,7 @@ public class Controller {
 		Global.selectedSintoma.setAnotacao(sintoma.getAnotacao());
 		Collections.sort(sintomas);
 	}
+	public static void editConsulta(Consulta consulta) {
+		Global.selectedConsulta.copy(consulta);		
+	}
 }

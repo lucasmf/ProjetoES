@@ -1,11 +1,12 @@
 package com.example.meusmedicos.models;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Consulta implements Comparable <Consulta> {
 	private String medico;
 	private String especialidade;
-	private GregorianCalendar date;
+	private Calendar date;
 	private String anotacao;
 
 	public Consulta(String medico, String especialidade, GregorianCalendar date) {
@@ -31,7 +32,7 @@ public class Consulta implements Comparable <Consulta> {
 		this.especialidade = especialidade;
 	}
 
-	public GregorianCalendar getDate() {
+	public Calendar getDate() {
 		return date;
 	}
 
@@ -63,5 +64,13 @@ public class Consulta implements Comparable <Consulta> {
 	public String toString() {
 		return medico + " - " + especialidade;
 
+	}
+
+	public void copy(Consulta consulta) {
+		this.medico = consulta.medico;
+		this.especialidade = consulta.especialidade;
+		this.date = consulta.date;
+		this.anotacao = consulta.anotacao;
+		
 	}
 }
