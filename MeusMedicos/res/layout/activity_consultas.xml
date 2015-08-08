@@ -44,8 +44,16 @@
 	 	    android:id="@+id/timePickerForm"
 	 	    android:layout_width="wrap_content"
 	 	    android:layout_height="wrap_content" />
-		
-	 	<Button
+
+		<CheckBox
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Lembre-me dessa Consulta"
+			android:id="@+id/checkRemeber"
+			android:layout_gravity="center_horizontal"
+			android:checked="false" />
+
+		<Button
 	    android:id="@+id/ButtonSendFeedback"
 	    android:layout_height="wrap_content"
 	    android:text="@string/feedbackbutton"
