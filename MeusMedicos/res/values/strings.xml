@@ -21,5 +21,6 @@
     <string name="deletion_sintoma_sucess">Sintoma deletado com sucesso.</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
+    <string name="title_activity_edit_consulta">EditConsultaActivity</string>
 
 </resources>

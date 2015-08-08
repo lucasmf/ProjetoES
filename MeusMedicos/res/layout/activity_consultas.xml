@@ -1,65 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ScrollView01"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:scrollbars="vertical">
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:orientation="vertical"
-        android:layout_height="fill_parent">
- 
-<!--Put form controls here-->
-	 	<TextView
-	    android:id="@+id/addConsultaBtn"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:text="Adicionar Consulta"
-	    android:textSize="10pt">
-		</TextView>
-		
-	 	<EditText
-	    android:id="@+id/nodeForm"
-	    android:layout_height="wrap_content"
-	    android:hint="Nome do Médico"
-	    android:inputType="textPersonName"
-	    android:layout_width="fill_parent">
-		</EditText>
-		
-	 	<Spinner
-	    android:id="@+id/especialidadeForm1"
-	    android:layout_height="wrap_content"
-	    android:prompt="@string/feedbacktype"
-	    android:layout_width="fill_parent"
-	    android:entries="@array/feedbacktypelist">
-		</Spinner>
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/ScrollView01"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:scrollbars="vertical">
+	<RelativeLayout
+		android:layout_width="fill_parent"
+		android:orientation="vertical"
+		android:layout_height="fill_parent">
 
-	 	<DatePicker
-	 	    android:id="@+id/datePickerForm1"
-	 	    android:layout_width="wrap_content"
-	 	    android:layout_height="wrap_content" />
-
-	 	<TimePicker
-	 	    android:id="@+id/timePickerForm"
-	 	    android:layout_width="wrap_content"
-	 	    android:layout_height="wrap_content" />
-
-		<CheckBox
+		<!--Put form controls here-->
+		<TextView
+			android:id="@+id/addConsultaBtn"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="Lembre-me dessa Consulta"
-			android:id="@+id/checkRemeber"
-			android:layout_gravity="center_horizontal"
-			android:checked="false" />
+			android:text="Adicionar Consulta"
+			android:textSize="10pt">
+		</TextView>
+
+		<EditText
+			android:id="@+id/nodeForm"
+			android:layout_height="wrap_content"
+			android:hint="Nome do Médico"
+			android:inputType="textPersonName"
+			android:layout_width="fill_parent"
+			android:layout_below="@+id/addConsultaBtn">
+		</EditText>
+
+		<Spinner
+			android:id="@+id/especialidadeForm1"
+			android:layout_height="wrap_content"
+			android:prompt="@string/feedbacktype"
+			android:layout_width="fill_parent"
+			android:layout_marginRight="40dp"
+			android:entries="@array/feedbacktypelist"
+			android:layout_below="@+id/nodeForm">
+		</Spinner>
+
+		<ImageButton
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:id="@+id/imageButtonAddEspecialidadeOnConsulta"
+			android:layout_below="@+id/nodeForm"
+			android:layout_alignRight="@+id/nodeForm"
+			android:layout_alignEnd="@+id/nodeForm"
+			android:src="@android:drawable/ic_input_add"
+			android:onClick="adicionaEspecialidade"
+			/>
+
+		<EditText
+			android:id="@+id/datePickerForm1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="dd/MM/yyyy"
+			android:onClick="callDatePickerDialog"
+			android:layout_below="@id/especialidadeForm1"/>
+		/>
+
+
+		<TimePicker
+			android:id="@+id/timePickerForm"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/datePickerForm1"/>
 
 		<Button
-	    android:id="@+id/ButtonSendFeedback"
-	    android:layout_height="wrap_content"
-	    android:text="@string/feedbackbutton"
-	    android:onClick="createConsulta"
-	    android:layout_width="fill_parent">
+			android:id="@+id/ButtonSendFeedback"
+			android:layout_height="wrap_content"
+			android:text="@string/feedbackbutton"
+			android:onClick="createConsulta"
+			android:layout_width="fill_parent"
+			android:layout_below="@+id/timePickerForm">
 		</Button>
-
-    </LinearLayout>
+	</RelativeLayout>
 </ScrollView>

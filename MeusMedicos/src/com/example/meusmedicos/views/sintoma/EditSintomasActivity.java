@@ -2,12 +2,14 @@ package com.example.meusmedicos.views.sintoma;
 
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -16,22 +18,29 @@ import com.example.meusmedicos.controllers.Controller;
 import com.example.meusmedicos.DatePickerFragment;
 import com.example.meusmedicos.Global;
 import com.example.meusmedicos.R;
+import com.example.meusmedicos.models.Especialidade;
 import com.example.meusmedicos.models.Sintoma;
+import com.example.meusmedicos.views.AdicionadorDeEspecialidade;
+import com.example.meusmedicos.views.especialidade.DialogEspecialidade;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Dênnis on 8/1/2015.
  */
-public class EditSintomasActivity extends Activity {
+public class EditSintomasActivity extends Activity implements AdicionadorDeEspecialidade {
     private Calendar begginingDate = Global.selectedSintoma.getDataQueComecou();
+    private Spinner spinner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_sintomas_activity);
 
+        addItemsOnSpinner();
         setAllEditTexts();
     }
 
@@ -154,4 +163,22 @@ public class EditSintomasActivity extends Activity {
         return note.getText().toString();
     }
 
+    public void addItemsOnSpinner() {
+
+        spinner = (Spinner) findViewById(R.id.especialidadeForm2);
+        List<String> list = new ArrayList<String>();
+        for (Especialidade e: Controller.getEspecialidades()){
+            list.add(e.toString());
+        }
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
+    }
+
+    public void adicionaEspecialidade(View view){
+        FragmentManager manager = getFragmentManager();
+        DialogEspecialidade dialogEspecialidade = new DialogEspecialidade();
+        dialogEspecialidade.show(manager, "DialogEspecialidade");
+    }
 }

@@ -15,15 +15,6 @@
         android:text="Sucesso"
         android:textSize="30sp" />
 
-    <ImageButton
-        android:id="@+id/imageButtonDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="14dp"
-        android:onClick="deletaConsulta"
-        android:src="@android:drawable/ic_menu_delete" />
 
     <TextView
         android:id="@+id/textView3"
