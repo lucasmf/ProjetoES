@@ -1,7 +1,9 @@
 package com.example.meusmedicos.views;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +16,8 @@ import android.view.View;
 import com.example.meusmedicos.R;
 import com.example.meusmedicos.views.consulta.ShowConsultas;
 import com.example.meusmedicos.views.sintoma.ShowSintomas;
+
+import java.util.Calendar;
 
 
 public class MainActivity extends Activity {
@@ -32,7 +36,17 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-      //  createNotification();
+
+        Intent intent = new Intent("ALARME_DISPARADO");
+        PendingIntent p = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(System.currentTimeMillis());
+
+        AlarmManager alarme = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarme.cancel(p);
+        alarme.setRepeating(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), AlarmManager.INTERVAL_DAY, p);
+
     }
    
 

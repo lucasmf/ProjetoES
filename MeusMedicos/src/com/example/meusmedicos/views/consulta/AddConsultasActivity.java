@@ -3,8 +3,17 @@ package com.example.meusmedicos.views.consulta;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -25,6 +35,7 @@ import com.example.meusmedicos.models.Especialidade;
 import com.example.meusmedicos.views.AdicionadorDeEspecialidade;
 import com.example.meusmedicos.views.especialidade.DialogEspecialidade;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -43,9 +54,15 @@ public class AddConsultasActivity extends Activity implements AdicionadorDeEspec
 		final Spinner especialidadeSpinner = (Spinner) findViewById(R.id.especialidadeForm1);
 		String especialidade = especialidadeSpinner.getSelectedItem()
 				.toString();
+
+		final Switch switchLembrar = (Switch) findViewById(R.id.switch1);
+		boolean lembrar = switchLembrar.isChecked();
 		
-		Consulta consulta = new Consulta(nomeMedico, especialidade, calendar);
+		Consulta consulta = new Consulta(nomeMedico, especialidade, calendar, lembrar);
 		Controller.addConsulta(consulta);
+
+
+
 		Log.i("Consulta", "Consulta adicionada, "+Controller.getConsultas().size());
 		finish();
 		startActivity(getIntent());

@@ -8,7 +8,7 @@
    <RelativeLayout
         android:layout_width="fill_parent"
         android:orientation="vertical"
-        android:layout_height="fill_parent">
+        android:layout_height="wrap_content">
  
 <!--Put form controls here-->
 	 	<TextView
@@ -75,5 +75,16 @@
 			android:layout_width="fill_parent"
 			android:layout_below="@+id/timePickerForm1">
 		</Button>
-    </RelativeLayout>
+
+	   <Switch
+		   android:layout_width="wrap_content"
+		   android:layout_height="wrap_content"
+		   android:text="Lembrar-me"
+		   android:id="@+id/switch1"
+		   android:layout_alignBottom="@+id/datePickerForm1"
+		   android:layout_alignRight="@+id/imageButtonAddEspecialidadeOnConsulta"
+		   android:layout_alignEnd="@+id/imageButtonAddEspecialidadeOnConsulta"
+		   android:checked="false" />
+
+   </RelativeLayout>
 </ScrollView>

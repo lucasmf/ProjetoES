@@ -8,12 +8,22 @@ public class Consulta implements Comparable <Consulta> {
 	private String especialidade;
 	private Calendar date;
 	private String anotacao;
+	private boolean lembrar;
 
-	public Consulta(String medico, String especialidade, GregorianCalendar date) {
+	public Consulta(String medico, String especialidade, GregorianCalendar date, boolean lembrar) {
 		this.setMedico(medico);
 		this.setEspecialidade(especialidade);
 		this.setDate(date);
 		this.setAnotacao("");
+		this.setLembrar(lembrar);
+	}
+
+	public void setLembrar(boolean lembrar){
+		this.lembrar = lembrar;
+	}
+
+	public boolean getLembrar(){
+		return this.lembrar;
 	}
 
 	public String getMedico() {

@@ -25,6 +25,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 public class EditConsultaActivity extends Activity {
@@ -100,7 +101,10 @@ public class EditConsultaActivity extends Activity {
 		String especialidade = especialidadeSpinner.getSelectedItem()
 				.toString();
 
-		Controller.editConsulta(new Consulta(nomeMedico, especialidade, calendar));
+		final Switch switchLembrar = (Switch) findViewById(R.id.switch1);
+		boolean lembrar = switchLembrar.isChecked();
+
+		Controller.editConsulta(new Consulta(nomeMedico, especialidade, calendar, lembrar));
 		
 		
 		finish();
