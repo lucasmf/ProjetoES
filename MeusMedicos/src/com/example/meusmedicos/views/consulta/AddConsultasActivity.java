@@ -69,7 +69,7 @@ public class AddConsultasActivity extends Activity implements AdicionadorDeEspec
 		Toast.makeText(getApplicationContext(), "Consulta criada.",
 				Toast.LENGTH_LONG).show();
 	}
-	
+
 
     public void callDatePickerDialog(View view){
         DialogFragment newFragment = new DatePickerFragment();

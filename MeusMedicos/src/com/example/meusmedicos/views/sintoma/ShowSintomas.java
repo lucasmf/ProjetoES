@@ -61,8 +61,7 @@ public class ShowSintomas extends Activity {
     public void addItemsOnSpinner() {
 
         spinner = (Spinner) findViewById(R.id.dropdown);
-        ArrayList<String> list = new ArrayList<String>(
-                Arrays.asList("Todos"));
+        ArrayList<String> list = new ArrayList<String>(Arrays.asList("Todas Especialidades"));
         for (Especialidade e: Controller.getEspecialidades()){
             list.add(e.toString());
         }
@@ -118,7 +117,7 @@ public class ShowSintomas extends Activity {
         List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 
         for (Sintoma item : sintomas) {
-            if (getSelectedEspecialidade().equals("Todos") ||
+            if (getSelectedEspecialidade().equals("Todas Especialidades") ||
                     item.getEspecialidade().equals(getSelectedEspecialidade())) {
                 Map<String, String> datum = new HashMap<String, String>(2);
                 datum.put("campo1", item.getTitulo());     //Item
