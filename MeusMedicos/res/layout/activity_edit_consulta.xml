@@ -5,10 +5,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:scrollbars="vertical">
+
    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
+       android:layout_width="fill_parent"
+       android:layout_height="337dp"
+       android:orientation="vertical" >
  
 <!--Put form controls here-->
 	 	<TextView
@@ -58,62 +59,69 @@
 			android:src="@android:drawable/ic_input_add"
 			android:onClick="adicionaEspecialidade"
 			/>
-		
-		<TextView
-		    android:id="@+id/datePickerForm1txt"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:text="Data da consulta: "
-		    android:layout_below="@+id/especialidadeForm1"
-		    android:textSize="7pt">
-		</TextView>
-		
-  		 <EditText
-	        android:id="@+id/datePickerForm1"
-	        android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-	        android:text="dd/MM/yyyy"
-	        android:onClick="callDatePickerDialog"
-	        android:layout_below="@id/especialidadeForm1"
-	        android:layout_toRightOf="@+id/datePickerForm1txt"/>
-    
-  		 <TextView
-		    android:id="@+id/timePickerForm1txt"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:text="Hora da consulta: "
-		    android:layout_below="@+id/datePickerForm1"
-		    android:textSize="7pt">
-		</TextView>
-		
-		  <EditText
-	        android:id="@+id/timePickerForm1"
-	        android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-	        android:text="hh/mm"
-	        android:onClick="callTimePickerDialog"
-	        android:layout_below="@id/datePickerForm1"
-	        android:layout_toRightOf="@+id/timePickerForm1txt"/>
 
+	   <Button
+	       android:id="@+id/ButtonSendFeedback"
+	       android:layout_width="fill_parent"
+	       android:layout_height="wrap_content"
+	       android:layout_alignParentBottom="true"
+	       android:layout_alignParentLeft="true"
+	       android:onClick="createConsulta"
+	       android:text="@string/feedbackbutton" />
 
-		<Button
-			android:id="@+id/ButtonSendFeedback"
-			android:layout_height="wrap_content"
-			android:text="@string/feedbackbutton"
-			android:onClick="createConsulta"
-			android:layout_width="fill_parent"
-			android:layout_below="@+id/timePickerForm1">
-		</Button>
+	   <TextView
+	       android:id="@+id/datePickerForm1txt"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:layout_alignBaseline="@+id/datePickerForm1"
+	       android:layout_alignBottom="@+id/datePickerForm1"
+	       android:layout_toLeftOf="@+id/timePickerForm1"
+	       android:text="Data: "
+	       android:textSize="7pt" />
+
+	   <TextView
+	       android:id="@+id/timePickerForm1txt"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:layout_alignParentLeft="true"
+	       android:layout_below="@+id/datePickerForm1"
+	       android:layout_marginTop="29dp"
+	       android:text="Hora: "
+	       android:textSize="7pt" />
+
+	   <EditText
+	       android:id="@+id/timePickerForm1"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:layout_alignBaseline="@+id/timePickerForm1txt"
+	       android:layout_alignBottom="@+id/timePickerForm1txt"
+	       android:layout_alignLeft="@+id/switch1"
+	       android:ems="10"
+	       android:onClick="callTimePickerDialog"
+	       android:text="hh/mm" />
+
+	   <EditText
+	       android:id="@+id/datePickerForm1"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:layout_alignLeft="@+id/timePickerForm1"
+	       android:layout_below="@+id/especialidadeForm1"
+	       android:ems="10"
+	       android:onClick="callDatePickerDialog"
+	       android:text="dd/MM/yyyy" >
+
+	       <requestFocus />
+	   </EditText>
 
 	   <Switch
-		   android:layout_width="wrap_content"
-		   android:layout_height="wrap_content"
-		   android:text="Lembrar-me"
-		   android:id="@+id/switch1"
-		   android:layout_alignBottom="@+id/datePickerForm1"
-		   android:layout_alignRight="@+id/imageButtonAddEspecialidadeOnConsulta"
-		   android:layout_alignEnd="@+id/imageButtonAddEspecialidadeOnConsulta"
-		   android:checked="false" />
+	       android:id="@+id/switch1"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:layout_below="@+id/timePickerForm1"
+	       android:layout_marginTop="19dp"
+	       android:layout_toRightOf="@+id/timePickerForm1txt"
+	       android:checked="false"
+	       android:text="Lembrar-me" />
 
    </RelativeLayout>
 </ScrollView>
