@@ -22,5 +22,6 @@
     <string name="yes">Sim</string>
     <string name="no">Não</string>
     <string name="title_activity_edit_consulta">EditConsultaActivity</string>
+    <color name="red">#FF4747</color>
 
 </resources>

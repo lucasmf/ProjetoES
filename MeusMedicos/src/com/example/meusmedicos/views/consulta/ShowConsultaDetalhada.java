@@ -19,15 +19,24 @@ import com.example.meusmedicos.R;
 public class ShowConsultaDetalhada extends Activity {
     private TextView lbSetNameDoctor;
     private TextView lbSetAnnotation;
+    private TextView lbSetDate;
+    private TextView lbSetTime;
+    private TextView lbSetEspeciality;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_consulta_detalhada);
         lbSetNameDoctor = (TextView) findViewById(R.id.textView2);
-        lbSetAnnotation = (TextView) findViewById(R.id.textView3);
+        lbSetAnnotation = (TextView) findViewById(R.id.textView10);
+        lbSetDate = (TextView) findViewById(R.id.textView6);
+        lbSetTime = (TextView) findViewById(R.id.textView4);
+        lbSetEspeciality = (TextView) findViewById(R.id.textView8);
         lbSetNameDoctor.setText(Global.selectedConsulta.getMedico());
         lbSetAnnotation.setText(Global.selectedConsulta.getAnotacao());
+        lbSetEspeciality.setText(Global.selectedConsulta.getEspecialidade());
+        lbSetDate.setText(Global.formatterDate.format(Global.selectedConsulta.getDate().getTime()));
+        lbSetTime.setText(Global.formatterTime.format(Global.selectedConsulta.getDate().getTime()));
     }
 
 

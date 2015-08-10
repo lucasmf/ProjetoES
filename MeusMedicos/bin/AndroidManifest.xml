@@ -4,6 +4,8 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+     <uses-permission android:name="android.permission.VIBRATE" />
+    
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="19" />
@@ -13,6 +15,15 @@
         android:icon="@drawable/meus_medicos"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+       
+		<receiver android:name=".controllers.BrodcastReceiverAux" android:label="BroadcastReceiverAux">
+            <intent-filter>
+                <action android:name="ALARME_DISPARADO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name=".views.MainActivity"
             android:label="@string/app_name" >
@@ -67,7 +78,7 @@
             android:name="com.example.meusmedicos.views.consulta.EditConsultaActivity"
             android:label="@string/title_activity_edit_consulta"
             android:parentActivityName=".views.consulta.ShowConsultaDetalhada" >
-            
+
         </activity>
     </application>
 
