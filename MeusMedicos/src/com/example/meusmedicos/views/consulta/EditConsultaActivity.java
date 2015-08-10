@@ -14,9 +14,11 @@ import com.example.meusmedicos.R.menu;
 import com.example.meusmedicos.controllers.Controller;
 import com.example.meusmedicos.models.Consulta;
 import com.example.meusmedicos.models.Especialidade;
+import com.example.meusmedicos.views.especialidade.DialogEspecialidade;
 
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -112,5 +114,11 @@ public class EditConsultaActivity extends Activity {
 		Toast.makeText(getApplicationContext(), "Consulta Modificada.",
 				Toast.LENGTH_LONG).show();
 	}
-
+	
+	public void adicionaEspecialidade(View view){
+		FragmentManager manager = getFragmentManager();
+		DialogEspecialidade dialogEspecialidade = new DialogEspecialidade();
+		dialogEspecialidade.show(manager, "DialogEspecialidade");
+	}
+	
 }

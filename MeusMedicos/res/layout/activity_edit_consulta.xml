@@ -27,7 +27,16 @@
 	    android:layout_width="fill_parent"
 		android:layout_below="@+id/addConsultaBtn">
 		</EditText>
-
+		
+	 	<TextView
+	    android:id="@+id/especialidadeForm1txt"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="Especialidade: "
+	    android:layout_below="@+id/nodeForm"
+	    android:textSize="7pt">
+		</TextView>
+		
 		<Spinner
 			android:id="@+id/especialidadeForm1"
 			android:layout_height="wrap_content"
@@ -35,7 +44,8 @@
 			android:layout_width="fill_parent"
 			android:layout_marginRight="40dp"
 			android:entries="@array/feedbacktypelist"
-			android:layout_below="@+id/nodeForm">
+			android:layout_below="@+id/nodeForm"
+			android:layout_toRightOf="@+id/especialidadeForm1txt">
 		</Spinner>
 
 		<ImageButton
@@ -49,14 +59,32 @@
 			android:onClick="adicionaEspecialidade"
 			/>
 		
+		<TextView
+		    android:id="@+id/datePickerForm1txt"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="Data da consulta: "
+		    android:layout_below="@+id/especialidadeForm1"
+		    android:textSize="7pt">
+		</TextView>
+		
   		 <EditText
 	        android:id="@+id/datePickerForm1"
 	        android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 	        android:text="dd/MM/yyyy"
 	        android:onClick="callDatePickerDialog"
-	        android:layout_below="@id/especialidadeForm1"/>
-        />
+	        android:layout_below="@id/especialidadeForm1"
+	        android:layout_toRightOf="@+id/datePickerForm1txt"/>
+    
+  		 <TextView
+		    android:id="@+id/timePickerForm1txt"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="Hora da consulta: "
+		    android:layout_below="@+id/datePickerForm1"
+		    android:textSize="7pt">
+		</TextView>
 		
 		  <EditText
 	        android:id="@+id/timePickerForm1"
@@ -64,7 +92,8 @@
 			android:layout_height="wrap_content"
 	        android:text="hh/mm"
 	        android:onClick="callTimePickerDialog"
-	        android:layout_below="@id/datePickerForm1"/>
+	        android:layout_below="@id/datePickerForm1"
+	        android:layout_toRightOf="@+id/timePickerForm1txt"/>
 
 
 		<Button
