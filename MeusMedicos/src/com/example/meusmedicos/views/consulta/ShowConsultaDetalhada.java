@@ -34,7 +34,7 @@ public class ShowConsultaDetalhada extends Activity {
         lbSetEspeciality = (TextView) findViewById(R.id.textView8);
         lbSetNameDoctor.setText(Global.selectedConsulta.getMedico());
         lbSetAnnotation.setText(Global.selectedConsulta.getAnotacao());
-        lbSetEspeciality.setText(Global.selectedConsulta.getEspecialidade());
+        lbSetEspeciality.setText(Global.selectedConsulta.getEspecialidade().toString());
         lbSetDate.setText(Global.formatterDate.format(Global.selectedConsulta.getDate().getTime()));
         lbSetTime.setText(Global.formatterTime.format(Global.selectedConsulta.getDate().getTime()));
     }

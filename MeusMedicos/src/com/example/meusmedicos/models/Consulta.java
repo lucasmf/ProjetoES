@@ -5,12 +5,12 @@ import java.util.GregorianCalendar;
 
 public class Consulta implements Comparable <Consulta> {
 	private String medico;
-	private String especialidade;
+	private Especialidade especialidade;
 	private Calendar date;
 	private String anotacao;
 	private boolean lembrar;
 
-	public Consulta(String medico, String especialidade, Calendar date, boolean lembrar) {
+	public Consulta(String medico, Especialidade  especialidade, Calendar date, boolean lembrar) {
 		this.setMedico(medico);
 		this.setEspecialidade(especialidade);
 		this.setDate(date);
@@ -34,11 +34,11 @@ public class Consulta implements Comparable <Consulta> {
 		this.medico = medico;
 	}
 
-	public String getEspecialidade() {
+	public Especialidade getEspecialidade() {
 		return especialidade;
 	}
 
-	public void setEspecialidade(String especialidade) {
+	public void setEspecialidade(Especialidade especialidade) {
 		this.especialidade = especialidade;
 	}
 

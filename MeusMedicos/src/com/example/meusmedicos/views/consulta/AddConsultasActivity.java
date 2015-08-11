@@ -58,7 +58,7 @@ public class AddConsultasActivity extends Activity implements AdicionadorDeEspec
 		final Switch switchLembrar = (Switch) findViewById(R.id.switch1);
 		boolean lembrar = switchLembrar.isChecked();
 		
-		Consulta consulta = new Consulta(nomeMedico, especialidade, calendar, lembrar);
+		Consulta consulta = new Consulta(nomeMedico, new Especialidade(especialidade), calendar, lembrar);
 		Controller.addConsulta(consulta);
 
 

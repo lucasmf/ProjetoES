@@ -9,10 +9,10 @@ public class Sintoma implements Comparable<Sintoma> {
     private String titulo;
     private int duracaoDeDias;
     private Calendar dataQueComecou;
-    private String especialidade;
+    private Especialidade especialidade;
     private String anotacao;
 
-    public Sintoma(String titulo, Calendar date, int duracao, String especialidade, String anotacao) {
+    public Sintoma(String titulo, Calendar date, int duracao, Especialidade especialidade, String anotacao) {
         this.setTitulo(titulo);
         this.setDataQueComecou(date);
         this.setDuracaoDeDias(duracao);
@@ -24,11 +24,11 @@ public class Sintoma implements Comparable<Sintoma> {
 
     public void setTitulo(String titulo) {   this.titulo = titulo;  }
 
-    public String getEspecialidade() {
+    public Especialidade getEspecialidade() {
         return especialidade;
     }
 
-    public void setEspecialidade(String especialidade) {
+    public void setEspecialidade(Especialidade especialidade) {
         this.especialidade = especialidade;
     }
 
