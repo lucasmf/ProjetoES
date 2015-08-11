@@ -106,7 +106,7 @@ public class EditConsultaActivity extends Activity {
 		final Switch switchLembrar = (Switch) findViewById(R.id.switch1);
 		boolean lembrar = switchLembrar.isChecked();
 
-		Controller.editConsulta(new Consulta(nomeMedico, especialidade, calendar, lembrar));
+		Controller.editConsulta(new Consulta(nomeMedico, new Especialidade(especialidade), calendar, lembrar));
 		
 		
 		finish();

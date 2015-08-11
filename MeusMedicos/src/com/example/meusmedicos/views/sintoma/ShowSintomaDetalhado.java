@@ -115,7 +115,7 @@ public class ShowSintomaDetalhado extends Activity {
     }
 
     private String getEspecialistaOfSintoma() {
-        String especialista = Global.selectedSintoma.getEspecialidade();
+        String especialista = Global.selectedSintoma.getEspecialidade().toString();
         return especialista;
     }
 

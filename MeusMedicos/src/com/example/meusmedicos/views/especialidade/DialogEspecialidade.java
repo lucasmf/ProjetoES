@@ -14,9 +14,6 @@ import com.example.meusmedicos.controllers.Controller;
 import com.example.meusmedicos.R;
 import com.example.meusmedicos.models.Especialidade;
 
-/**
- * Created by Órion on 01/08/2015.
- */
 public class DialogEspecialidade extends DialogFragment implements View.OnClickListener {
     Button adicionar, cancelar;
     EditText especialidade;
@@ -41,16 +38,21 @@ public class DialogEspecialidade extends DialogFragment implements View.OnClickL
     private void salvaEspecialidade(){
         final EditText especialidadeMessage = (EditText) view.findViewById(R.id.editText15);
 
-        Controller.adicionaEspecialidade(new Especialidade(especialidadeMessage.getText().toString()));
+        String especialidadeStr = especialidadeMessage.getText().toString();
+
+        if (especialidadeStr.equals("")){
+            Toast.makeText(getActivity(), "Especialidade não deve ser vazia!", Toast.LENGTH_LONG).show();
+        } else {
+            Controller.adicionaEspecialidade(new Especialidade(especialidadeMessage.getText().toString()));
+            dismiss();
+            Toast.makeText(getActivity(), "Especialidade adicionada com sucesso!", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.button3){
             salvaEspecialidade();
-            dismiss();
-            Toast.makeText(getActivity(), "Especialidade adicionada com sucesso!", Toast.LENGTH_LONG).show();
-
         } else if (view.getId() == R.id.button4) {
             dismiss();
             Toast.makeText(getActivity(), "Especialidade não adicionada!", Toast.LENGTH_LONG).show();

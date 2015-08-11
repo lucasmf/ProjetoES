@@ -142,7 +142,7 @@ public class AddSintomasActivity extends Activity implements AdicionadorDeEspeci
     }
 
     public Sintoma createSintoma(String title, int number, String especialidade, String anotacao){
-        return new Sintoma(title, this.begginingDate, number, especialidade, anotacao);
+        return new Sintoma(title, this.begginingDate, number, new Especialidade(especialidade), anotacao);
     }
 
     public String getAnotacaoFromSintoma() {

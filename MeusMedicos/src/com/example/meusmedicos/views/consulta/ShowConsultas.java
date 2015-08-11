@@ -49,7 +49,7 @@ public class ShowConsultas extends Activity {
 
         for (Consulta item : s) {
             if (getSelectedEspecialidade().equals("Todas Especialidades") ||
-                    item.getEspecialidade().equals(getSelectedEspecialidade())) {
+                    item.getEspecialidade().toString().equals(getSelectedEspecialidade())) {
                 Map<String, String> datum = new HashMap<String, String>(2);
                 datum.put("campo1", item.toString());     //Item
                 datum.put("campo2", formatter.format(item.getDate().getTime()));    //subItem
