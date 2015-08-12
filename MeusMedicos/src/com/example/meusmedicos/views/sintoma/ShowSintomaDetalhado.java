@@ -14,6 +14,7 @@ import com.example.meusmedicos.controllers.Controller;
 import com.example.meusmedicos.Global;
 import com.example.meusmedicos.R;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -125,9 +126,8 @@ public class ShowSintomaDetalhado extends Activity {
     }
 
     private String getDataOfSintoma() {
-        Date date = Global.selectedSintoma.getDataQueComecou().getTime();
-        String dataStr = Global.formatterDate.format(date);
-        return dataStr;
+        Calendar date = Global.selectedSintoma.getDataQueComecou();
+        return date.get(Calendar.DAY_OF_MONTH) + "/" + date.get(Calendar.MONTH) + "/" + date.get(Calendar.YEAR);
     }
 
     private String getTitleOfSintoma() {

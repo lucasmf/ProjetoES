@@ -1,6 +1,7 @@
 package com.example.meusmedicos.models;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * Created by Dênnis on 7/30/2015.
@@ -40,6 +41,14 @@ public class Sintoma implements Comparable<Sintoma> {
 
     public Calendar getDataQueComecou() {
         return this.dataQueComecou;
+    }
+
+    public Calendar getDataQueTerminou(){
+        int year = dataQueComecou.get(Calendar.YEAR);
+        int month = dataQueComecou.get(Calendar.MONTH);
+        int day = dataQueComecou.get(Calendar.DAY_OF_MONTH);
+
+        return new GregorianCalendar(year, month, day + getDuracaoDeDias());
     }
 
     public void setDataQueComecou(Calendar date) {

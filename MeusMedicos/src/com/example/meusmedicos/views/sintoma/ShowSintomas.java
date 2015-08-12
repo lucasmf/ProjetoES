@@ -1,18 +1,24 @@
 package com.example.meusmedicos.views.sintoma;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.StringDef;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 
+import com.example.meusmedicos.DatePickerFragment;
 import com.example.meusmedicos.controllers.Controller;
 import com.example.meusmedicos.Global;
 import com.example.meusmedicos.R;
@@ -22,6 +28,8 @@ import com.example.meusmedicos.models.Sintoma;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,15 +40,79 @@ import java.util.Map;
 public class ShowSintomas extends Activity {
     private ListView lv;
     private Spinner spinner;
+    private Calendar begginingDate, endingDate;
+    private EditText begginingDateET, endingDateET;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_sintomas);
         lv = (ListView) findViewById(R.id.listView2);
+        initializeCalendar();
         addItemsOnSpinner();
         loadListOfSintomas();
         spinnerOnChange();
+    }
+
+    private void initializeCalendar(){
+        begginingDateET = (EditText) findViewById(R.id.editText16);
+        endingDateET = (EditText) findViewById(R.id.editText17);
+
+        begginingDate = Calendar.getInstance();
+        begginingDate.set(Calendar.YEAR, 2015);
+        begginingDate.set(Calendar.MONTH, 1);
+        begginingDate.set(Calendar.DAY_OF_MONTH, 1);
+
+        begginingDateET.setText("01/01/2015");
+
+        endingDate = Calendar.getInstance();
+        int year = endingDate.get(Calendar.YEAR);
+        int month = endingDate.get(Calendar.MONTH) + 1;
+        int day = endingDate.get(Calendar.DAY_OF_MONTH);
+
+        endingDate.set(Calendar.MONTH, month);
+        String currentDate = day + "/" + month + "/" + year;
+        endingDateET.setText(currentDate);
+
+        begginingDateET.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (begginingDate.compareTo(endingDate) > 0) {
+                    endingDate.set(Calendar.YEAR, begginingDate.get(Calendar.YEAR));
+                    endingDate.set(Calendar.MONTH, begginingDate.get(Calendar.MONTH));
+                    endingDate.set(Calendar.DAY_OF_MONTH, begginingDate.get(Calendar.DAY_OF_MONTH));
+
+                    endingDateET.setText(endingDate.get(Calendar.DAY_OF_MONTH) + "/"
+                            + endingDate.get(Calendar.MONTH) + "/" + endingDate.get(Calendar.YEAR));
+                }
+                loadListOfSintomas();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        endingDateET.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                loadListOfSintomas();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     public void spinnerOnChange(){
@@ -111,22 +183,45 @@ public class ShowSintomas extends Activity {
         return spinner.getSelectedItem().toString();
     }
 
+    private boolean sintomaFilter(Sintoma sintoma){
+        Calendar date = sintoma.getDataQueComecou();
+        Log.v("Data sintoma começou:", date.get(Calendar.DAY_OF_MONTH) + "/" + date.get(Calendar.MONTH) + "/" + date.get(Calendar.YEAR) + "    " + date.getTimeInMillis());
+        date = sintoma.getDataQueTerminou();
+        Log.v("Data sintoma terminou:", date.get(Calendar.DAY_OF_MONTH) + "/" + date.get(Calendar.MONTH) + "/" + date.get(Calendar.YEAR)+ "    " + date.getTimeInMillis());
+        date = begginingDate;
+        Log.v("Data filtro começa:", date.get(Calendar.DAY_OF_MONTH) + "/" + date.get(Calendar.MONTH) + "/" + date.get(Calendar.YEAR)+ "    " + date.getTimeInMillis());
+        date = endingDate;
+        Log.v("Data filtro termina:", date.get(Calendar.DAY_OF_MONTH) + "/" + date.get(Calendar.MONTH) + "/" + date.get(Calendar.YEAR)+ "    " + date.getTimeInMillis());
+
+        return (sameDay(sintoma.getDataQueTerminou(), begginingDate) || sameDay(sintoma.getDataQueComecou(), endingDate) ||
+                (!(sintoma.getDataQueComecou().compareTo(begginingDate) == -1 && sintoma.getDataQueTerminou().compareTo(begginingDate) == -1) &&
+                !(sintoma.getDataQueComecou().compareTo(endingDate) == 1 && sintoma.getDataQueTerminou().compareTo(endingDate) == 1))) &&
+                (getSelectedEspecialidade().equals("Todas Especialidades") ||
+                sintoma.getEspecialidade().toString().equals(getSelectedEspecialidade()));
+    }
+
+    private boolean sameDay(Calendar c1, Calendar c2){
+        return c1.get(Calendar.DAY_OF_MONTH) == c2.get(Calendar.DAY_OF_MONTH)
+                && c1.get(Calendar.MONTH) == c2.get(Calendar.MONTH)
+                && c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR);
+    }
+
     private void loadListOfSintomas() {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         ArrayList<Sintoma> sintomas = Controller.getSintomas();
         List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 
         for (Sintoma item : sintomas) {
-            if (getSelectedEspecialidade().equals("Todas Especialidades") ||
-                    item.getEspecialidade().toString().equals(getSelectedEspecialidade())) {
+            if (sintomaFilter(item)) {
                 Map<String, String> datum = new HashMap<String, String>(2);
                 datum.put("campo1", item.getTitulo());     //Item
-                datum.put("campo2", formatter.format(item.getDataQueComecou().getTime()));    //subItem
+                Calendar date = item.getDataQueComecou();
+                datum.put("campo2", date.get(Calendar.DAY_OF_MONTH) + "/" + date.get(Calendar.MONTH) + "/" + date.get(Calendar.YEAR));    //subItem
                 data.add(datum);
             }
         }
-        SimpleAdapter adapter = new SimpleAdapter(this, data,android.R.layout.simple_list_item_2,new String[] {"campo1", "campo2"},
-                new int[] {android.R.id.text1, android.R.id.text2});
+        SimpleAdapter adapter = new SimpleAdapter(this, data, android.R.layout.simple_list_item_2, new String[]{"campo1", "campo2"},
+                new int[]{android.R.id.text1, android.R.id.text2});
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -134,5 +229,18 @@ public class ShowSintomas extends Activity {
                 openDetalhes((int) id);
             }
         });
+    }
+
+    public void callDatePickerDialog1(View view){
+        DialogFragment newFragment = new DatePickerFragment();
+        ((DatePickerFragment)newFragment).show(getFragmentManager(), "datePicker", begginingDateET, begginingDate);
+    }
+
+    public void callDatePickerDialog2(View view){
+        DialogFragment newFragment = new DatePickerFragment();
+        Calendar date = new GregorianCalendar(begginingDate.get(Calendar.YEAR),begginingDate.get(Calendar.MONTH) - 1,begginingDate.get(Calendar.DAY_OF_MONTH));
+        DatePickerFragment datePickerFragment = (DatePickerFragment) newFragment;
+        datePickerFragment.setMinimumDate(date.getTimeInMillis());
+        datePickerFragment.show(getFragmentManager(), "datePicker", endingDateET, endingDate);
     }
 }

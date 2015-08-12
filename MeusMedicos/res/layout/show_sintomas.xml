@@ -7,7 +7,7 @@
         android:id="@+id/listView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/dropdown">
+        android:layout_below="@+id/editText17">
     </ListView>
 
     <Spinner
@@ -19,5 +19,51 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/editText16"
+        android:layout_below="@+id/dropdown"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="dd/MM/yyyy"
+        android:onClick="callDatePickerDialog1"
+        android:editable="false" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/editText17"
+        android:layout_below="@+id/editText16"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="dd/MM/yyyy"
+        android:onClick="callDatePickerDialog2"
+        android:editable="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Data inicial:"
+        android:id="@+id/textView24"
+        android:layout_above="@+id/editText17"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Data final:"
+        android:id="@+id/textView25"
+        android:layout_above="@+id/listView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
