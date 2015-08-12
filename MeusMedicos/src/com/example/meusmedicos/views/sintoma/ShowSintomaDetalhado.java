@@ -72,7 +72,7 @@ public class ShowSintomaDetalhado extends Activity {
                 switch (which){
                     case DialogInterface.BUTTON_POSITIVE:
                         //Yes button clicked
-                        Controller.removeSintoma();
+                        Controller.removeSintoma(Global.selectedSintoma);
                         Toast.makeText(getApplicationContext(), R.string.deletion_sintoma_sucess,
                                 Toast.LENGTH_LONG).show();
                         onBackPressed();

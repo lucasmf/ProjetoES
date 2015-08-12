@@ -40,8 +40,8 @@ public class Controller {
 		consultas.remove(consulta);
 	}
 
-	public static void removeSintoma() {
-		int deletionIndex = Collections.binarySearch(sintomas, Global.selectedSintoma);
+	public static void removeSintoma(Sintoma sintoma) {
+		int deletionIndex = Collections.binarySearch(sintomas, sintoma);
 		if (deletionIndex >= 0){
 			sintomas.remove(deletionIndex);
 		}
