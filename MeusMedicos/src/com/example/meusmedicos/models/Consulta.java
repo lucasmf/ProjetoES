@@ -70,6 +70,54 @@ public class Consulta implements Comparable <Consulta> {
 	}
 	
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((anotacao == null) ? 0 : anotacao.hashCode());
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		result = prime * result
+				+ ((especialidade == null) ? 0 : especialidade.hashCode());
+		result = prime * result + (lembrar ? 1231 : 1237);
+		result = prime * result + ((medico == null) ? 0 : medico.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Consulta other = (Consulta) obj;
+		if (anotacao == null) {
+			if (other.anotacao != null)
+				return false;
+		} else if (!anotacao.equals(other.anotacao))
+			return false;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
+			return false;
+		if (especialidade == null) {
+			if (other.especialidade != null)
+				return false;
+		} else if (!especialidade.equals(other.especialidade))
+			return false;
+		if (lembrar != other.lembrar)
+			return false;
+		if (medico == null) {
+			if (other.medico != null)
+				return false;
+		} else if (!medico.equals(other.medico))
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		return medico + " - " + especialidade;
 
@@ -79,6 +127,8 @@ public class Consulta implements Comparable <Consulta> {
 		this.medico = consulta.medico;
 		this.especialidade = consulta.especialidade;
 		this.date = consulta.date;
+		this.anotacao = consulta.anotacao;
+		this.lembrar = consulta.lembrar;
 		this.anotacao = consulta.anotacao;
 		
 	}
