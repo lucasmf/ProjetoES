@@ -1,14 +1,6 @@
 package com.example.meusmedicos.models;
 
 public class Especialidade implements Comparable<Especialidade>{
-    @Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((especialidade == null) ? 0 : especialidade.hashCode());
-		return result;
-	}
 
 	@Override
 	public boolean equals(Object obj) {

@@ -77,4 +77,53 @@ public class Sintoma implements Comparable<Sintoma> {
 
     }
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((anotacao == null) ? 0 : anotacao.hashCode());
+		result = prime * result
+				+ ((dataQueComecou == null) ? 0 : dataQueComecou.hashCode());
+		result = prime * result + duracaoDeDias;
+		result = prime * result
+				+ ((especialidade == null) ? 0 : especialidade.hashCode());
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Sintoma other = (Sintoma) obj;
+		if (anotacao == null) {
+			if (other.anotacao != null)
+				return false;
+		} else if (!anotacao.equals(other.anotacao))
+			return false;
+		if (dataQueComecou == null) {
+			if (other.dataQueComecou != null)
+				return false;
+		} else if (!dataQueComecou.equals(other.dataQueComecou))
+			return false;
+		if (duracaoDeDias != other.duracaoDeDias)
+			return false;
+		if (especialidade == null) {
+			if (other.especialidade != null)
+				return false;
+		} else if (!especialidade.equals(other.especialidade))
+			return false;
+		if (titulo == null) {
+			if (other.titulo != null)
+				return false;
+		} else if (!titulo.equals(other.titulo))
+			return false;
+		return true;
+	}
+
 }
