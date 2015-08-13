@@ -1,5 +1,6 @@
 package com.example.meusmedicos.controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -43,17 +44,23 @@ public class BrodcastReceiverAux extends BroadcastReceiver {
         actualTime.setTime(new Date());
 
         for (Consulta item : s) {
-            if (item.getLembrar()){
-                if (actualTime.compareTo(item.getDate()) == 0){
-                    todayConsultas.add("Consulta com: " + item.getMedico() + " " + item.getEspecialidade());
-                }
+            if (item.getLembrar() && isTheSameDate(actualTime, item.getDate())){
+                todayConsultas.add(item.getMedico() + " " + item.getEspecialidade());
             }
         }
 
         if (todayConsultas.size() != 0){
-            gerarNotificacao(context, new Intent(context, ShowConsultas.class), "Nova Consulta", "MeusMedicos", todayConsultas);
+            gerarNotificacao(context, new Intent(context, ShowConsultas.class), "Lembrete de Consulta", "MeusMedicos", todayConsultas);
         }
 
+    }
+
+    private boolean isTheSameDate(Calendar actualTime, Calendar date) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String systemDate = formatter.format(actualTime.getTime());
+        String itemDate = formatter.format(date.getTime());
+
+        return systemDate.equals(itemDate);
     }
 
     public void gerarNotificacao(Context context, Intent intent, CharSequence ticker, CharSequence titulo, ArrayList<String> descricao){
@@ -69,9 +76,9 @@ public class BrodcastReceiverAux extends BroadcastReceiver {
         builder.setContentIntent(p);
 
         NotificationCompat.InboxStyle style = new NotificationCompat.InboxStyle();
-        String[] desc = new String[descricao.size()];
-        for(int i = 0; i < desc.length; i++){
-            style.addLine(desc[i]);
+        style.addLine("Sua(s) consulta(s) de hoje:");
+        for(int i = 0; i < descricao.size(); i++){
+            style.addLine(descricao.get(i));
         }
         builder.setStyle(style);
 
@@ -87,7 +94,4 @@ public class BrodcastReceiverAux extends BroadcastReceiver {
         }
         catch(Exception e){}
     }
-
-
-
 }
