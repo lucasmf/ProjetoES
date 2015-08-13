@@ -1,5 +1,7 @@
 package com.example.meusmedicos.views.sintoma;
 
+import java.util.Calendar;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -10,12 +12,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.meusmedicos.controllers.Controller;
 import com.example.meusmedicos.Global;
 import com.example.meusmedicos.R;
-
-import java.util.Calendar;
-import java.util.Date;
+import com.example.meusmedicos.controllers.Controller;
 
 /**
  * Created by Dênnis on 7/31/2015.

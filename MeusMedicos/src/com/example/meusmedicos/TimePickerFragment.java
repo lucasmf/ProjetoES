@@ -26,9 +26,6 @@ public class TimePickerFragment extends DialogFragment implements OnTimeSetListe
     private EditText mInputEditText;
 
     private Calendar mCurrentTime;
-
-    private boolean mIsSetMinDate = false;
-    private long mMinDate = 0;
 	
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {

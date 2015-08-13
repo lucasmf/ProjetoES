@@ -4,23 +4,10 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import com.example.meusmedicos.DatePickerFragment;
-import com.example.meusmedicos.Global;
-import com.example.meusmedicos.R;
-import com.example.meusmedicos.TimePickerFragment;
-import com.example.meusmedicos.R.id;
-import com.example.meusmedicos.R.layout;
-import com.example.meusmedicos.R.menu;
-import com.example.meusmedicos.controllers.Controller;
-import com.example.meusmedicos.models.Consulta;
-import com.example.meusmedicos.models.Especialidade;
-import com.example.meusmedicos.views.especialidade.DialogEspecialidade;
-
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +16,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import com.example.meusmedicos.DatePickerFragment;
+import com.example.meusmedicos.Global;
+import com.example.meusmedicos.R;
+import com.example.meusmedicos.TimePickerFragment;
+import com.example.meusmedicos.controllers.Controller;
+import com.example.meusmedicos.models.Consulta;
+import com.example.meusmedicos.models.Especialidade;
+import com.example.meusmedicos.views.especialidade.DialogEspecialidade;
 
 public class EditConsultaActivity extends Activity {
 	private Spinner spinner;

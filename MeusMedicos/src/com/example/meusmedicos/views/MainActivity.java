@@ -1,14 +1,12 @@
 package com.example.meusmedicos.views;
 
+import java.util.Calendar;
+
 import android.app.Activity;
 import android.app.AlarmManager;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,8 +14,6 @@ import android.view.View;
 import com.example.meusmedicos.R;
 import com.example.meusmedicos.views.consulta.ShowConsultas;
 import com.example.meusmedicos.views.sintoma.ShowSintomas;
-
-import java.util.Calendar;
 
 
 public class MainActivity extends Activity {

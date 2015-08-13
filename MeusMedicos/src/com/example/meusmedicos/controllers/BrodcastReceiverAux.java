@@ -1,5 +1,9 @@
 package com.example.meusmedicos.controllers;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -10,18 +14,12 @@ import android.graphics.BitmapFactory;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import com.example.meusmedicos.R;
 import com.example.meusmedicos.models.Consulta;
 import com.example.meusmedicos.views.consulta.ShowConsultas;
-import com.example.meusmedicos.R;
-
-import java.sql.Time;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by JULIE on 09/08/2015.
@@ -58,7 +56,7 @@ public class BrodcastReceiverAux extends BroadcastReceiver {
 
     }
 
-    public void gerarNotificacao(Context context, Intent intent, CharSequence ticker, CharSequence titulo, ArrayList descricao){
+    public void gerarNotificacao(Context context, Intent intent, CharSequence ticker, CharSequence titulo, ArrayList<String> descricao){
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         PendingIntent p = PendingIntent.getActivity(context, 0, intent, 0);
 

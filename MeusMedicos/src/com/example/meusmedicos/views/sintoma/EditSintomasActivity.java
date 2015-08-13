@@ -1,5 +1,10 @@
 package com.example.meusmedicos.views.sintoma;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
@@ -14,19 +19,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.meusmedicos.controllers.Controller;
 import com.example.meusmedicos.DatePickerFragment;
 import com.example.meusmedicos.Global;
 import com.example.meusmedicos.R;
+import com.example.meusmedicos.controllers.Controller;
 import com.example.meusmedicos.models.Especialidade;
 import com.example.meusmedicos.models.Sintoma;
 import com.example.meusmedicos.views.AdicionadorDeEspecialidade;
 import com.example.meusmedicos.views.especialidade.DialogEspecialidade;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Dênnis on 8/1/2015.
@@ -152,11 +152,11 @@ public class EditSintomasActivity extends Activity implements AdicionadorDeEspec
         return new Sintoma(title, this.begginingDate, number, new Especialidade(especialidade), anotacao);
     }
 
-    private String getDataOfSintoma() {
+/*    private String getDataOfSintoma() {
         Date date = Global.selectedSintoma.getDataQueComecou().getTime();
         String dataStr = Global.formatterDate.format(date);
         return dataStr;
-    }
+    }*/
 
     public String getAnotacaoFromSintoma() {
         final EditText note = (EditText)findViewById(R.id.editText13);

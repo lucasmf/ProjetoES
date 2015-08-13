@@ -1,7 +1,6 @@
 package com.example.meusmedicos.models;
 
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class Consulta implements Comparable <Consulta> {
 	private String medico;

@@ -36,11 +36,11 @@ public final class R {
     public static final class id {
         public static final int ButtonSendFeedback=0x7f0b0007;
         public static final int ScrollView01=0x7f0b0000;
-        public static final int action_delete=0x7f0b003a;
-        public static final int action_edit=0x7f0b003b;
-        public static final int action_help=0x7f0b003d;
-        public static final int action_plus=0x7f0b0039;
-        public static final int action_settings=0x7f0b003c;
+        public static final int action_delete=0x7f0b003e;
+        public static final int action_edit=0x7f0b003f;
+        public static final int action_help=0x7f0b0041;
+        public static final int action_plus=0x7f0b003d;
+        public static final int action_settings=0x7f0b0040;
         public static final int addConsultaBtn=0x7f0b0001;
         public static final int button1=0x7f0b000e;
         public static final int button2=0x7f0b000f;
@@ -48,7 +48,7 @@ public final class R {
         public static final int button4=0x7f0b0015;
         public static final int datePickerForm1=0x7f0b0005;
         public static final int datePickerForm1txt=0x7f0b0009;
-        public static final int dropdown=0x7f0b0038;
+        public static final int dropdown=0x7f0b0039;
         public static final int dropdown2=0x7f0b002b;
         public static final int editText1=0x7f0b0011;
         public static final int editText10=0x7f0b0018;
@@ -56,6 +56,8 @@ public final class R {
         public static final int editText12=0x7f0b001e;
         public static final int editText13=0x7f0b0021;
         public static final int editText15=0x7f0b0014;
+        public static final int editText16=0x7f0b003a;
+        public static final int editText17=0x7f0b0038;
         public static final int especialidadeForm1=0x7f0b0003;
         public static final int especialidadeForm1txt=0x7f0b0008;
         public static final int especialidadeForm2=0x7f0b001a;
@@ -84,6 +86,8 @@ public final class R {
         public static final int textView21=0x7f0b0032;
         public static final int textView22=0x7f0b0033;
         public static final int textView23=0x7f0b0034;
+        public static final int textView24=0x7f0b003b;
+        public static final int textView25=0x7f0b003c;
         public static final int textView3=0x7f0b0028;
         public static final int textView30=0x7f0b0035;
         public static final int textView31=0x7f0b0036;

@@ -8,10 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.meusmedicos.controllers.Controller;
-import com.example.meusmedicos.views.sintoma.EditSintomasActivity;
 import com.example.meusmedicos.Global;
 import com.example.meusmedicos.R;
+import com.example.meusmedicos.controllers.Controller;
 
 /**
  * Screen that details Consulta selected.

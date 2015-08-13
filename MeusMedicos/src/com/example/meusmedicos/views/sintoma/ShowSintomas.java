@@ -1,10 +1,17 @@
 package com.example.meusmedicos.views.sintoma;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.StringDef;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -19,20 +26,11 @@ import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 
 import com.example.meusmedicos.DatePickerFragment;
-import com.example.meusmedicos.controllers.Controller;
 import com.example.meusmedicos.Global;
 import com.example.meusmedicos.R;
+import com.example.meusmedicos.controllers.Controller;
 import com.example.meusmedicos.models.Especialidade;
 import com.example.meusmedicos.models.Sintoma;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Órion on 29/07/2015.
@@ -207,7 +205,6 @@ public class ShowSintomas extends Activity {
     }
 
     private void loadListOfSintomas() {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         ArrayList<Sintoma> sintomas = Controller.getSintomas();
         List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 
